@@ -22,13 +22,11 @@ class FilmController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
         Film::create([
             'name' => $request->name,
             'year' => $request->year,
             'desc' => $request->desc,
-            'duration' => $request->duration,
-            'image' => $request->file('image')->store('cover', 'public')
+            'duration' => $request->duration
         ]);
 
 

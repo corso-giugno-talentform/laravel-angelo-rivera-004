@@ -11,13 +11,11 @@
          @foreach ($films as $film)
              <div class="col hover-scale">
                  <div class="card">
-                     <img src="{{ isset($film->image) ? Storage::url($film->image) : 'https://img.icons8.com/?size=100&id=1Z0XRfLWlnbO&format=png&color=000000' }}"
+                     <img src="{{ isset($film->image) ? Storage::url($film->image) : 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDI1bWNuZWJlcXBxcWd1cWttMjhlaWdpaXcwcHlhbWNoNnAyc2N1aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AwJuJzp1pGrcfO51g6/giphy.gif' }}"
                          class="card-img-top" alt="...">
                      <div class="card-body">
                          <h5 class="card-title">{{ $film->name }}</h5>
-                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                             to
-                             additional content. This content is a little bit longer.</p>
+                         <p class="card-text">{{ $film->desc }}</p>
                      </div>
                  </div>
              </div>

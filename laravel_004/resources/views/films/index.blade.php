@@ -27,8 +27,8 @@
                     <tr>
                         <th scope="row">#{{ $film->id }}</th>
                         <td>
-                            <img class="card-img-top" style="width:3rem"
-                                src="{{ isset($film->image) ? Storage::url($film->image) : 'https://img.icons8.com/?size=100&id=1Z0XRfLWlnbO&format=png&color=000000' }}"
+                            <img class="card-img-top" style="width:3rem; height:3rem;"
+                                src="{{ isset($film->image) ? Storage::url($film->image) : 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTFodHo4a2FiYWY5dW12ejJ4MWk4czBrcXZ0YmQ1ZXJvM3pncGl2diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/m9ppt2Z9tiaK1crjHw/giphy.gif' }}"
                                 alt="..." />
                         </td>
                         <td>{{ $film->name }}</td>
