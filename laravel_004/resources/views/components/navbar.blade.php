@@ -39,7 +39,7 @@
                         </li>
                     @endif
                     <li class="nav-item">
-                        <p class="nav-link text-white hover-scale">Ciao, {{ Auth::user()->name }}</p>
+                        <p class="nav-link text-white hover-scale mt-3">Ciao, {{ Auth::user()->name }}</p>
                     </li>
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="POST">

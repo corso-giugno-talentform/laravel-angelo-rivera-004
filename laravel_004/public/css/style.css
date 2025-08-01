@@ -4,15 +4,75 @@
     color: #ffffff !important;
 }
 
-/* Stile della navbar */
+/* Stile generale della navbar */
 .navbar {
-    background-color: #111 !important;
+    background-color: #111;
+    /* Nero scuro, tipico di Netflix */
+    padding: 0.5rem 1rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+/* Logo e brand */
 .navbar-brand {
-    font-family: 'Arial Rounded MT Bold', Arial, sans-serif !important;
-    font-size: 1.5rem !important;
-    color: #e50914 !important;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #e50914;
+    /* Colore Netflix */
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+/* Logo immagine */
+.navbar-brand img {
+    margin-right: 0.5rem;
+}
+
+/* Link di navigazione */
+.nav-link {
+    color: #fff;
+    /* Bianco */
+    font-weight: 500;
+    margin-left: 1rem;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.nav-link:hover,
+.hover-scale:hover {
+    color: #e50914;
+    /* Colore Netflix al hover */
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+/* Pulsante logout */
+button.nav-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+    margin-left: 1rem;
+}
+
+button.nav-link:hover {
+    color: #e50914;
+    transform: scale(1.1);
+}
+
+/* Per la lista di navigazione */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav li {
+    list-style: none;
 }
 
 /* Sezione hero con immagine di sfondo */
@@ -96,16 +156,284 @@
     padding: 20px !important;
 }
 
-/* Sezione post con effetto simile a quella del hero */
+/* Stile per la jumbotron con immagine di sfondo */
 .jumbotron-posts {
-    height: 80vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: linear-gradient(rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.3)), no-repeat center center !important;
-    background-size: cover !important;
-    color: white !important;
-    text-align: center !important;
-    padding: 20px !important;
+    position: relative;
+    height: 100vh;
+    /* altezza visibile */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Per un overlay scuro sopra l'immagine */
+}
+
+.jumbotron-posts::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 20, 20, 0.5);
+    /* overlay scuro trasparente */
+    z-index: 1;
+}
+
+/* Contenuto sovrapposto all'immagine */
+.jumbotron-posts>* {
+    position: relative;
+    z-index: 2;
+    padding: 1rem;
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+/* Stile per il titolo e altri elementi */
+.jumbotron-posts h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.row {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.col-lg-8 {
+    background-color: #222;
+    /* sfondo leggermente più chiaro */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+}
+
+/* Stile per le alert */
+.alert {
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Alert di successo (verde) */
+.alert-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Alert di errore (rosso) */
+.alert-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Form labels */
+label.form-label {
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Input stile Netflix */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    background-color: #444;
+    box-shadow: 0 0 10px #ff0000;
+    /* effet di evidenziazione rosso Netflix */
+}
+
+/* Bottone submit (se presente) */
+button[type="submit"] {
+    background-color: #e50914;
+    /* rosso Netflix */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #b0060f;
+    /* rosso più scuro */
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+    resize: vertical;
+    /* permette di ridimensionare verticalmente */
+    min-height: 100px;
+    /* altezza minima */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    background-color: #444;
+    box-shadow: 0 0 10px #ff0000;
+    /* evidenzia con rosso Netflix */
+}
+
+.form-control:focus {
+    color: #fff;
+    /* il colore desiderato quando attivo */
+}
+
+/* Stile per la card */
+.card {
+    background-color: #fff;
+    /* sfondo bianco */
+    border-radius: 15px;
+    /* angoli arrotondati */
+    padding: 20px;
+    /* padding interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* ombra leggera */
+    transition: box-shadow 0.3s ease;
+}
+
+/* Stile per la card */
+.film-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-scale:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.card-header {
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.card-title {
+    margin: 0;
+}
+
+/* Descrizione */
+.film-description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.596);
+    line-height: 1.5;
+}
+
+/* Dettagli film */
+.film-details {
+    margin-top: 1rem;
+}
+
+.detail-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+    /* blu */
+    margin-bottom: 0.5rem;
+}
+
+.detail-item p {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+}
+
+#film-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+/* Card film */
+.film-thumbnail {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.film-thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Immagine copertina */
+.card-img-container {
+    position: relative;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Overlay con pulsante */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.film-thumbnail:hover .overlay {
+    opacity: 1;
+}
+
+/* Pulsante */
+.btn-primary {
+    background-color: #e50914;
+    /* colore Netflix */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #f6121d;
+}
+
+/* Modale */
+.modal-content {
+    background-color: #222;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
 }
