@@ -18,21 +18,28 @@
             @csrf
             {{ $id ?? '' }}
             <div class="mb-3">
-                <label for="name" class="form-label">Titolo del film</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                    name="name" placeholder="" autocomplete="off" value="{{ old('name') }}">
+                <label for="title" class="form-label">Titolo del film</label>
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                    name="title" placeholder="Inserisci il titolo" autocomplete="off" value="{{ old('title') }}">
 
             </div>
             <div class="mb-3">
-                <label for="year" class="form-label">Anno di Pubblicazione</label>
-                <input type="number" class="form-control @error('year') is-invalid @enderror" id="year"
-                    name="year" placeholder="" autocomplete="off" value="{{ old('year') }}">
+                <label for="release_year" class="form-label">Anno di Pubblicazione</label>
+                <input type="number" class="form-control @error('release_year') is-invalid @enderror" id="release_year"
+                    name="release_year" placeholder="Inserisci l'anno" autocomplete="off"
+                    value="{{ old('release_year') }}">
 
             </div>
             <div class="mb-3">
-                <label for="desc" class="form-label">Descrizione del film</label>
-                <textarea class="form-control @error('desc') is-invalid @enderror" id="messaggio" name="msg" rows="5"
-                    placeholder="Descrizione breve" autocomplete="off">{{ old('desc') }}</textarea>
+                <label for="genre" class="form-label">Genere del film</label>
+                <input type="text" class="form-control @error('genre') is-invalid @enderror" id="genre"
+                    name="genre" placeholder="Inserisci il genere" autocomplete="off" value="{{ old('genre') }}">
+
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descrizione del film</label>
+                <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description"
+                    rows="5" placeholder="Descrizione breve" autocomplete="off">{{ old('description') }}</textarea>
             </div>
             <div class="mb-3">
                 <label for="duration" class="form-label">Durata del film</label>
@@ -41,9 +48,9 @@
                     value="{{ old('duration') }}">
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Immagine Cover</label>
-                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
-                    name="image">
+                <label for="cover" class="form-label">Immagine Cover</label>
+                <input class="form-control @error('cover') is-invalid @enderror" type="file" id="cover"
+                    name="cover">
             </div>
             <button type="submit" class="btn btn-primary w-100">Salva</button>
         </form>

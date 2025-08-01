@@ -22,11 +22,12 @@ class StoreFilmRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:100'],
-            'year' => ['nullable', 'integer'],
-            'desc' => ['nullable', 'string'],
+            'title' => ['required', 'string', 'max:100'],
+            'release_year' => ['nullable', 'integer'],
+            'description' => ['nullable', 'string'],
             'duration' => ['nullable', 'integer'],
-            'image' => ['nullable', 'mimes:jpg,jpeg,bmp,png,gif', 'max:2048'], // max 2MB
+            'genre' => ['nullable', 'string'],
+            'cover' => ['nullable', 'mimes:jpg,jpeg,bmp,png,gif', 'max:2048'], // max 2MB
         ];
     }
 }

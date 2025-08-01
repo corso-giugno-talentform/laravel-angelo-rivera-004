@@ -40,10 +40,12 @@
                                     Visualizza
                                 </a>
                                 @auth
-                                    <a href="#" class="btn btn-warning me-md-2">
-                                        Modifica
-                                    </a>
-                                    <button type="button" class="btn btn-danger me-md-2">Elimina</button>
+                                    @if (auth()->user()->is_admin)
+                                        <a href="#" class="btn btn-warning me-md-2">
+                                            Modifica
+                                        </a>
+                                        <button type="button" class="btn btn-danger me-md-2">Elimina</button>
+                                    @endif
                                 @endauth
                             </div>
                         </td>
