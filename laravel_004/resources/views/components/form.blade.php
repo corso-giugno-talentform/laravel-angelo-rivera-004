@@ -14,25 +14,31 @@
             </div>
         @endif
         {{ $slot }}
-        <form class="" action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="" action="{{ route('films.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             {{ $id ?? '' }}
             <div class="mb-3">
-                <label for="name" class="form-label">Titolo del libro</label>
+                <label for="name" class="form-label">Titolo del film</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                     name="name" placeholder="" autocomplete="off" value="{{ old('name') }}">
 
             </div>
             <div class="mb-3">
-                <label for="year" class="form-label">Anno di Scrittura</label>
+                <label for="year" class="form-label">Anno di Pubblicazione</label>
                 <input type="number" class="form-control @error('year') is-invalid @enderror" id="year"
                     name="year" placeholder="" autocomplete="off" value="{{ old('year') }}">
 
             </div>
             <div class="mb-3">
-                <label for="page" class="form-label">Pagine del Libro</label>
-                <input type="number" class="form-control @error('page') is-invalid @enderror" id="page"
-                    name="page" rows="5" placeholder="" autocomplete="off" value="{{ old('page') }}">
+                <label for="desc" class="form-label">Descrizione del film</label>
+                <textarea class="form-control @error('desc') is-invalid @enderror" id="messaggio" name="msg" rows="5"
+                    placeholder="Descrizione breve" autocomplete="off">{{ old('desc') }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="duration" class="form-label">Durata del film</label>
+                <input type="number" class="form-control @error('duration') is-invalid @enderror" id="page"
+                    name="page" rows="5" placeholder="Espressa in minuti" autocomplete="off"
+                    value="{{ old('duration') }}">
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Immagine Cover</label>

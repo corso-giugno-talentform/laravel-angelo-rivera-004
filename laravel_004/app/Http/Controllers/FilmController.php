@@ -22,6 +22,7 @@ class FilmController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
         Film::create([
             'name' => $request->name,
             'year' => $request->year,

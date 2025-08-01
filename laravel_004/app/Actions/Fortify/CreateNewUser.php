@@ -20,15 +20,36 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => [
+            'name' => ['required', 'string', 'max:50'],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
+            'password' => [
                 'required',
                 'string',
-                'email',
-                'max:255',
-                Rule::unique(User::class),
+                'min:8',
+                'confirmed',
+                function ($attribute, $value, $fail) {
+                    $patterns = [
+                        'Maiuscola' => '/[A-Z]/',
+                        'Minuscola' => '/[a-z]/',
+                        'Numero' => '/[0-9]/',
+                        'Simbolo' => '/[!@#$%^&*()_\+\-=\[\]{};:\'",.<>\/?]/',
+                    ];
+
+                    $messages = [
+                        'Maiuscola' => 'La password deve contenere almeno una lettera maiuscola.',
+                        'Minuscola' => 'La password deve contenere almeno una lettera minuscola.',
+                        'Numero' => 'La password deve contenere almeno un numero.',
+                        'Simbolo' => 'La password deve contenere almeno un simbolo.',
+                    ];
+
+                    foreach ($patterns as $key => $pattern) {
+                        if (!preg_match($pattern, $value)) {
+                            $fail($messages[$key]);
+                            break; // interrompe se una regola fallisce
+                        }
+                    }
+                },
             ],
-            'password' => $this->passwordRules(),
         ])->validate();
 
         return User::create([
