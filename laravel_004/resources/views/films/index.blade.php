@@ -19,6 +19,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Immagine</th>
                     <th scope="col">Titolo</th>
+                    <th scope="col">Genere</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -28,10 +29,11 @@
                         <th scope="row">#{{ $film->id }}</th>
                         <td>
                             <img class="card-img-top" style="width:3rem; height:3rem;"
-                                src="{{ isset($film->image) ? Storage::url($film->image) : 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTFodHo4a2FiYWY5dW12ejJ4MWk4czBrcXZ0YmQ1ZXJvM3pncGl2diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/m9ppt2Z9tiaK1crjHw/giphy.gif' }}"
+                                src="{{ isset($film->cover) ? Storage::url($film->cover) : 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTFodHo4a2FiYWY5dW12ejJ4MWk4czBrcXZ0YmQ1ZXJvM3pncGl2diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/m9ppt2Z9tiaK1crjHw/giphy.gif' }}"
                                 alt="..." />
                         </td>
-                        <td>{{ $film->name }}</td>
+                        <td>{{ $film->title }}</td>
+                        <td>{{ $film->genre }}</td>
                         <td>
 
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
