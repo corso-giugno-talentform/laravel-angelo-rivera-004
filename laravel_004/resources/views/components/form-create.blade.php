@@ -43,8 +43,8 @@
             </div>
             <div class="mb-3">
                 <label for="duration" class="form-label">Durata del film</label>
-                <input type="number" class="form-control @error('duration') is-invalid @enderror" id="page"
-                    name="page" rows="5" placeholder="Espressa in minuti" autocomplete="off"
+                <input type="number" class="form-control @error('duration') is-invalid @enderror" id="duration"
+                    name="duration" rows="5" placeholder="Espressa in minuti" autocomplete="off"
                     value="{{ old('duration') }}">
             </div>
             <div class="mb-3">

@@ -1,83 +1,111 @@
+/* Stile di base per il corpo */
 .body {
-    background-color: #141414;
-    color: #ffffff;
+    background-color: #141414 !important;
+    color: #ffffff !important;
 }
 
+/* Stile della navbar */
 .navbar {
-    background-color: #111;
+    background-color: #111 !important;
 }
 
 .navbar-brand {
-    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
-    font-size: 1.5rem;
-    color: #e50914;
+    font-family: 'Arial Rounded MT Bold', Arial, sans-serif !important;
+    font-size: 1.5rem !important;
+    color: #e50914 !important;
 }
 
+/* Sezione hero con immagine di sfondo */
 .hero {
-    background-image: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamtubHNrNzhrNGxid3F4cWhyd2JtcWh6MHpkbTdia2NvaXNjNmdyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEjI86EqyhqyKMZJ6/giphy.gif');
-    background-size: cover;
-    background-position: center;
-    height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    background-image: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExamtubHNrNzhrNGxid3F4cWhyd2JtcWh6MHpkbTdia2NvaXNjNmdyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEjI86EqyhqyKMZJ6/giphy.gif') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    height: 70vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    font-size: 3rem !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    padding: 20px !important;
 }
 
+/* Sezioni di padding */
 .section {
-    padding: 30px 0;
+    padding: 30px 0 !important;
 }
 
+/* Stile delle card - enfatizzato con sfondo semi-trasparente e bordo */
 .card {
-    background-color: #222;
-    border: none;
+    background: rgba(20, 20, 20, 0.6) !important;
+    border: 2px solid #e50914 !important;
+    border-radius: 20px !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    /* supporto per Safari */
+    padding: 20px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+    color: #fff !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
-.card-img-top {
-    height: 300px;
-    object-fit: cover;
-}
-
-.footer {
-    background-color: #111;
-    padding: 20px 0;
-    text-align: center;
-}
-
+/* Effetto hover per le card */
 .hover-scale {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease !important;
 }
 
 .hover-scale:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) !important;
 }
 
+/* Immagini delle card, con altezza fissa e oggetto coprente */
+.card-img-top {
+    height: 300px;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+}
+
+/* Footer */
+.footer {
+    background-color: #111 !important;
+    padding: 20px 0 !important;
+    text-align: center !important;
+    color: #fff !important;
+}
+
+/* Sezione con effetto di scala al passaggio del mouse */
+.hover-scale {
+    display: inline-block !important;
+    cursor: pointer !important;
+}
+
+/* Sezione jumbotron hero */
 .jumbotron-hero {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjJ6eXJzbWNkbTNjMm40ZHBlbndubGo5cmxlNXdtNXFxZHNhOGppMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Sye75bfzPZrmo/giphy.gif') no-repeat center center;
-    background-size: cover;
-    color: white;
-    text-align: center;
-    padding: 20px;
+    height: 80vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)), url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjJ6eXJzbWNkbTNjMm40ZHBlbndubGo5cmxlNXdtNXFxZHNhOGppMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Sye75bfzPZrmo/giphy.gif') no-repeat center center !important;
+    background-size: cover !important;
+    color: white !important;
+    text-align: center !important;
+    padding: 20px !important;
 }
 
+/* Sezione post con effetto simile a quella del hero */
 .jumbotron-posts {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), no-repeat center center;
-    background-size: cover;
-    color: white;
-    text-align: center;
-    padding: 20px;
+    height: 80vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)), no-repeat center center !important;
+    background-size: cover !important;
+    color: white !important;
+    text-align: center !important;
+    padding: 20px !important;
 }

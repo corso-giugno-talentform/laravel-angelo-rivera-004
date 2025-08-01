@@ -38,15 +38,48 @@
 
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                                <a href="#" class="btn btn-primary me-md-2">
+                                <a href="{{ route('films.show', ['film' => $film]) }}" class="btn btn-primary me-md-2">
                                     Visualizza
                                 </a>
                                 @auth
                                     @if (auth()->user()->is_admin)
-                                        <a href="#" class="btn btn-warning me-md-2">
+                                        <a href="{{ route('films.edit', ['film' => $film]) }}"
+                                            class="btn btn-warning me-md-2">
                                             Modifica
                                         </a>
-                                        <button type="button" class="btn btn-danger me-md-2">Elimina</button>
+
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#deleteModal-{{ $film->id }}">
+                                            Elimina
+                                        </button>
+
+                                        <div class="modal fade" id="deleteModal-{{ $film->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="deleteModalLabel-{{ $film->id }}"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="deleteModalLabel-{{ $film->id }}">
+                                                            Eliminazione Film</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Chiudi"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Sei sicuro di voler eliminare "{{ $film->title }}"?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <form action="{{ route('films.destroy', ['film' => $film]) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Elimina</button>
+                                                        </form>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Annulla</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endif
                                 @endauth
                             </div>
