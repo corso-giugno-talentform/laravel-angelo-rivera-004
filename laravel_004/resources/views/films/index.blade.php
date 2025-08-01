@@ -4,13 +4,13 @@
 
     <div class="container mt-5">
         <div class="align-middle gap-2 d-flex justify-content-between">
-            <h3>Elenco Libri inseriti</h3>
+            <h3>Elenco Film inseriti</h3>
             <form class="d-flex" role="search" action="#" method="POST">
-                <input class="form-control me-2" name="search" type="search" placeholder="Cerca Libro"
+                <input class="form-control me-2" name="search" type="search" placeholder="Cerca Film"
                     aria-label="Search">
             </form>
-            <a href="{{ route('books.create') }}" type="button" class="btn btn btn-success me-md-2">
-                Crea Nuovo Libro
+            <a href="{{ route('films.create') }}" type="button" class="btn btn btn-success me-md-2">
+                Crea Nuovo Film
             </a>
         </div>
         <table class="table border mt-2">
@@ -23,15 +23,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($books as $book)
+                @foreach ($films as $film)
                     <tr>
-                        <th scope="row">#{{ $book->id }}</th>
+                        <th scope="row">#{{ $film->id }}</th>
                         <td>
                             <img class="card-img-top" style="width:3rem"
-                                src="{{ isset($book->image) ? Storage::url($book->image) : 'https://img.icons8.com/?size=100&id=1Z0XRfLWlnbO&format=png&color=000000' }}"
+                                src="{{ isset($film->image) ? Storage::url($film->image) : 'https://img.icons8.com/?size=100&id=1Z0XRfLWlnbO&format=png&color=000000' }}"
                                 alt="..." />
                         </td>
-                        <td>{{ $book->name }}</td>
+                        <td>{{ $film->name }}</td>
                         <td>
 
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">

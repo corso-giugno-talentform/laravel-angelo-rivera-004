@@ -10,7 +10,7 @@ class PageController extends Controller
     public function homepage()
     {
 
-        $books = Film::latest()->take(3)->get();
+        $films = Film::latest()->take(3)->get();
         return view('pages.homepage', compact('films'));
     }
 }
