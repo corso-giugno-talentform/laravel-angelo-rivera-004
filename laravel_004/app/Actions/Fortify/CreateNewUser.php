@@ -2,8 +2,11 @@
 
 namespace App\Actions\Fortify;
 
+use App\Mail\SendAdminMail;
+use App\Mail\SendMail;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -51,6 +54,11 @@ class CreateNewUser implements CreatesNewUsers
                 },
             ],
         ])->validate();
+
+        $admin_email = 'admin@aiss.it';
+
+        Mail::to($input['email'])->send(new SendMail($input));
+        Mail::to($admin_email)->send(new SendAdminMail($input));
 
         return User::create([
             'name' => $input['name'],
