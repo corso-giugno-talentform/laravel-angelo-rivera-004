@@ -61,6 +61,21 @@
                 </a>
             </div>
             <div class="mb-3">
+                @foreach ($genres as $genre)
+                    <div class="form-check ">
+                        <input name="genres[]" class="form-check-input" type="checkbox" value="{{ $genre->id }}"
+                            id="checkDefault-{{ $genre->id }}">
+                        <label class="form-check-label" for="checkDefault-{{ $genre->id }}">
+                            {{ $genre->name }}
+                        </label>
+                    </div>
+                @endforeach
+
+                <a href="{{ route('genres.create') }}" type="button" class="mt-2 btn btn btn-success me-md-2">
+                    Crea Nuovo Genere
+                </a>
+            </div>
+            <div class="mb-3">
                 <label for="cover" class="form-label">Immagine Cover</label>
                 <input class="@error('cover') is-invalid @enderror" type="file" id="cover" name="cover">
             </div>

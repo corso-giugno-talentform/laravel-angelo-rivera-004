@@ -22,7 +22,13 @@
                     </div>
                     <div class="detail-item text-center m-2">
                         <i class="fas fa-film"></i>
-                        <p class="mb-0"><strong>Genere:</strong> {{ $film->genre }}</p>
+                        <p class="mb-0"><strong>Genere:</strong>
+                            @foreach ($film->genres as $genre)
+                                {{ $genre->name }}@if (!$loop->last)
+                                    ,
+                                @endif
+                            @endforeach
+                        </p>
                     </div>
                 </div>
             </div>

@@ -4,79 +4,64 @@
 
     <div class="container mt-5">
         <div class="align-middle gap-2 d-flex justify-content-between">
-            <h3>Elenco Film inseriti</h3>
+            <h3>Elenco Generi esistenti</h3>
             <form class="d-flex" role="search" action="#" method="POST">
                 <input class="form-control me-2" name="search" type="search" placeholder="Cerca Film"
                     aria-label="Search">
             </form>
-            <a href="{{ route('films.create') }}" type="button" class="btn btn btn-success me-md-2">
-                Crea Nuovo Film
+            <a href="{{ route('genres.create') }}" type="button" class="btn btn btn-success me-md-2">
+                Crea Nuovo Genere
             </a>
         </div>
         <table class="table border mt-2">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Immagine</th>
-                    <th scope="col">Titolo</th>
                     <th scope="col">Genere</th>
-                    <th scope="col">Regista</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($films as $film)
+                @foreach ($genres as $genre)
                     <tr>
-                        <th scope="row">#{{ $film->id }}</th>
-                        <td>
-                            <img class="card-img-top" style="width:3rem; height:3rem;"
-                                src="{{ isset($film->cover) ? Storage::url($film->cover) : 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTFodHo4a2FiYWY5dW12ejJ4MWk4czBrcXZ0YmQ1ZXJvM3pncGl2diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/m9ppt2Z9tiaK1crjHw/giphy.gif' }}"
-                                alt="..." />
-                        </td>
-                        <td>{{ $film->title }}</td>
-                        <td>
-                            @foreach ($film->genres as $genre)
-                                {{ $genre->name }}@if (!$loop->last)
-                                    ,
-                                @endif
-                            @endforeach
-                        </td>
-                        <td>{{ $film->author->firstname . ' ' . $film->author->lastname }}</td>
+                        <th scope="row">#{{ $genre->id }}</th>
+                        <td>{{ $genre->name }}</td>
                         <td>
 
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                                <a href="{{ route('films.show', ['film' => $film]) }}" class="btn btn-primary me-md-2">
+                                <a href="{{ route('genres.show', ['genre' => $genre]) }}"
+                                    class="btn btn-primary me-md-2">
                                     Visualizza
                                 </a>
                                 @auth
                                     @if (auth()->user()->is_admin)
-                                        <a href="{{ route('films.edit', ['film' => $film]) }}"
+                                        <a href="{{ route('genres.edit', ['genre' => $genre]) }}"
                                             class="btn btn-warning me-md-2">
                                             Modifica
                                         </a>
 
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#deleteModal-{{ $film->id }}">
+                                            data-bs-target="#deleteModal-{{ $genre->id }}">
                                             Elimina
                                         </button>
 
-                                        <div class="modal fade" id="deleteModal-{{ $film->id }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="deleteModalLabel-{{ $film->id }}"
+                                        <div class="modal fade" id="deleteModal-{{ $genre->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="deleteModalLabel-{{ $genre->id }}"
                                             aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="deleteModalLabel-{{ $film->id }}">
+                                                        <h5 class="modal-title" id="deleteModalLabel-{{ $genre->id }}">
                                                             Eliminazione Film</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Chiudi"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Sei sicuro di voler eliminare "{{ $film->title }}"?
+                                                        Sei sicuro di voler eliminare "{{ $genre->name }}"?
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <form action="{{ route('films.destroy', ['film' => $film]) }}"
+                                                        <form action="{{ route('genres.destroy', ['genre' => $genre]) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
@@ -97,7 +82,6 @@
 
             </tbody>
         </table>
-        {{ $films->links() }}
     </div>
 </div>
 <x-footer />

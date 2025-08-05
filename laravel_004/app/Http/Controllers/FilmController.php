@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFilmRequest;
 use App\Models\Author;
 use App\Models\Film;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +25,8 @@ class FilmController extends Controller
             return redirect('/')->with('error', 'Accesso negato.');
         }
         $authors = Author::all();
-        return view('films.create', compact('authors'));
+        $genres = Genre::all();
+        return view('films.create', compact('authors', 'genres'));
     }
 
     public function store(StoreFilmRequest $request)
@@ -34,7 +36,7 @@ class FilmController extends Controller
             return redirect('/')->with('error', 'Accesso negato.');
         }
 
-        Film::create([
+        $film = Film::create([
             'title' => $request->title,
             'release_year' => $request->release_year,
             'duration' => $request->duration,
@@ -44,6 +46,7 @@ class FilmController extends Controller
             'cover' => $request->file('cover')->store('cover', 'public')
         ]);
 
+        $film->genres()->attach($request->genres);
         $insert = 'Elemento inserito!';
         return redirect()->route('films.index')->with('success', $insert);
     }
@@ -56,7 +59,8 @@ class FilmController extends Controller
     public function edit(Film $film)
     {
         $authors = Author::all();
-        return view('films.edit', compact('film', 'authors'));
+        $genres = Genre::all();
+        return view('films.edit', compact('film', 'authors', 'genres'));
     }
 
     public function update(Film $film, Request $request)
@@ -75,6 +79,8 @@ class FilmController extends Controller
             'author_id' => $request->author_id,
             'cover' => $cover
         ]);
+
+        $film->genres()->sync($request->genres);
 
         return redirect()->route('films.index')->with('success', 'Elemento modificato!');
     }
