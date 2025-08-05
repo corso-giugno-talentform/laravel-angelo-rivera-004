@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,4 @@ Route::delete('/films/{film}/elimina', [FilmController::class, 'destroy'])->name
 
 
 Route::resource('authors', AuthorController::class);
+Route::resource('genres', GenreController::class);
