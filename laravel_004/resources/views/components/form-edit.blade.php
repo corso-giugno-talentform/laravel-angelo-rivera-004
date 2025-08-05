@@ -48,6 +48,20 @@
                 <input type="number" class="@error('duration') is-invalid @enderror" id="duration" name="duration"
                     rows="5" placeholder="Espressa in minuti" autocomplete="off" value="{{ $film->duration }}">
             </div>
+            <div class="mt-5 mb-4 select-wrapper">
+                <label for="author" class="form-label">Regista Attuale</label>
+                <select name="author_id" class="custom-netflix-select" id="inputAuthor">
+                    @foreach ($authors as $author)
+                        <option value="{{ $author->id }}"
+                            {{ $author->id == $film->author_id ? 'selected' : 'Sconosciuto' }}>
+                            {{ $author->firstname . ' ' . $author->lastname }}
+                        </option>
+                    @endforeach
+                </select>
+                <a href="{{ route('authors.create') }}" type="button" class="mt-2 btn btn btn-success me-md-2">
+                    Crea Nuovo Autore
+                </a>
+            </div>
             <div class="mb-3">
                 <img style="height:100px" src="{{ Storage::url($film->cover) }}" alt="">
                 <label for="cover" class="form-label">Immagine Cover Attuale</label>

@@ -48,6 +48,18 @@
                 <input type="number" class="@error('duration') is-invalid @enderror" id="duration" name="duration"
                     rows="5" placeholder="Espressa in minuti" autocomplete="off" value="{{ old('duration') }}">
             </div>
+            <div class="mt-5 mb-4 select-wrapper">
+                <select name="author_id" class="custom-netflix-select" id="inputAuthor">
+                    <option selected>Seleziona un Regista</option>
+                    @foreach ($authors as $author)
+                        <option value="{{ $author->id }}">
+                            {{ $author->firstname . ' ' . $author->lastname }}</option>
+                    @endforeach
+                </select>
+                <a href="{{ route('authors.create') }}" type="button" class="mt-2 btn btn btn-success me-md-2">
+                    Crea Nuovo Regista
+                </a>
+            </div>
             <div class="mb-3">
                 <label for="cover" class="form-label">Immagine Cover</label>
                 <input class="@error('cover') is-invalid @enderror" type="file" id="cover" name="cover">

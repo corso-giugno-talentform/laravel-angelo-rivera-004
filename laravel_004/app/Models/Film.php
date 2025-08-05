@@ -12,6 +12,12 @@ class Film extends Model
         'duration',
         'description',
         'genre',
+        'author_id',
         'cover',
     ];
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
+    }
 }

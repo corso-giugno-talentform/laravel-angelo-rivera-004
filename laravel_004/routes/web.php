@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
@@ -17,3 +18,6 @@ Route::get('/films/{film}/modifica', [FilmController::class, 'edit'])->name('fil
 Route::put('/films/{film}/aggiorna', [FilmController::class, 'update'])->name('films.update');
 
 Route::delete('/films/{film}/elimina', [FilmController::class, 'destroy'])->name('films.destroy');
+
+
+Route::resource('authors', AuthorController::class);

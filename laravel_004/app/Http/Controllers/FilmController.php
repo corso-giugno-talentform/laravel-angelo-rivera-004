@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFilmRequest;
+use App\Models\Author;
 use App\Models\Film;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,8 +12,9 @@ class FilmController extends Controller
 {
     public function index()
     {
-        $films = Film::all();
-        return view('films.index', compact('films'));
+        $films = Film::simplePaginate(4);
+        $authors = Author::all();
+        return view('films.index', compact('films', 'authors'));
     }
 
     public function create()
@@ -21,7 +23,8 @@ class FilmController extends Controller
         if (!$user || !$user->is_admin) {
             return redirect('/')->with('error', 'Accesso negato.');
         }
-        return view('films.create');
+        $authors = Author::all();
+        return view('films.create', compact('authors'));
     }
 
     public function store(StoreFilmRequest $request)
@@ -37,6 +40,7 @@ class FilmController extends Controller
             'duration' => $request->duration,
             'description' => $request->description,
             'genre' => $request->genre,
+            'author_id' => $request->author_id,
             'cover' => $request->file('cover')->store('cover', 'public')
         ]);
 
@@ -51,7 +55,8 @@ class FilmController extends Controller
 
     public function edit(Film $film)
     {
-        return view('films.edit', compact('film'));
+        $authors = Author::all();
+        return view('films.edit', compact('film', 'authors'));
     }
 
     public function update(Film $film, Request $request)
@@ -60,12 +65,14 @@ class FilmController extends Controller
         if ($request->hasFile('cover')) {
             $cover = $request->file('cover')->store('cover', 'public');
         }
+
         $film->update([
             'title' => $request->title,
             'release_year' => $request->release_year,
             'duration' => $request->duration,
             'description' => $request->description,
             'genre' => $request->genre,
+            'author_id' => $request->author_id,
             'cover' => $cover
         ]);
 
