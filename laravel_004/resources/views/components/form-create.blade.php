@@ -50,7 +50,7 @@
             </div>
             <div class="mt-5 mb-4 select-wrapper">
                 <select name="author_id" class="custom-netflix-select" id="inputAuthor">
-                    <option selected>Seleziona un Regista</option>
+                    <option selected value="">Seleziona un Regista</option>
                     @foreach ($authors as $author)
                         <option value="{{ $author->id }}">
                             {{ $author->firstname . ' ' . $author->lastname }}</option>
