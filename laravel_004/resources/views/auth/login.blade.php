@@ -19,12 +19,12 @@
                 <div class="mb-3">
                     <label for="email" class="form-label">Email
                         utente</label>
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                        id="email" value="{{ old('email') }}">
+                    <input type="email" name="email" class="@error('email') is-invalid @enderror" id="email"
+                        value="{{ old('email') }}">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+                    <input type="password" name="password" class="@error('password') is-invalid @enderror"
                         id="password">
                 </div>
 

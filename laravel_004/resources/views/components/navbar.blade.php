@@ -14,11 +14,14 @@
                         <a class="nav-link text-white hover-scale" href="{{ route('pages.homepage') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white hover-scale" href="{{ route('films.create') }}">Crea Film</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link text-white hover-scale" href="{{ route('films.index') }}">Visualizza Lista
                             Film</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white hover-scale" href="{{ route('login') }}">Accedi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white hover-scale" href="{{ route('register') }}">Registrati</a>
                     </li>
                 @endguest
                 @auth
