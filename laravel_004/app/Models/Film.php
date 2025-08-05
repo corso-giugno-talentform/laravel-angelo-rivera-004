@@ -20,4 +20,8 @@ class Film extends Model
     {
         return $this->belongsTo(Author::class);
     }
+    public function genres() //plurale
+    {
+        return $this->belongsToMany(Genre::class);
+    }
 }
