@@ -41,7 +41,6 @@ class FilmController extends Controller
             'release_year' => $request->release_year,
             'duration' => $request->duration,
             'description' => $request->description,
-            'genre' => $request->genre,
             'author_id' => $request->author_id,
             'cover' => $request->file('cover')->store('cover', 'public')
         ]);
@@ -75,7 +74,6 @@ class FilmController extends Controller
             'release_year' => $request->release_year,
             'duration' => $request->duration,
             'description' => $request->description,
-            'genre' => $request->genre,
             'author_id' => $request->author_id,
             'cover' => $cover
         ]);

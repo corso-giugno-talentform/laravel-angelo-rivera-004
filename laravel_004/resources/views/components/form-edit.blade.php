@@ -59,28 +59,37 @@
                     @endforeach
                 </select>
                 <a href="{{ route('authors.create') }}" type="button" class="mt-2 btn btn btn-success me-md-2">
-                    Crea Nuovo Autore
+                    <img src="https://img.icons8.com/?size=100&id=0w8efhRZ2Ijj&format=png&color=000000" width="30"
+                        height="30" alt="Add director" /> <img
+                        src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmZraDZ6N2psMm0wNHZpdjhxemR0NHVkdXFvcHRtcnQ0dzhmaDE0YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/aLPcVjHz13bnCrlM9D/giphy.gif"
+                        width="30" height="30" alt="Add director" />
                 </a>
             </div>
             <div class="mb-3">
                 @foreach ($genres as $genre)
-                    <div class="form-check ">
-                        <input @if ($film->genres->contains($genre->id)) checked @endif name="genres[]" class="form-check-input"
+                    <div>
+                        <input @if ($film->genres->contains($genre->id)) checked @endif name="genres[]" class="custom-checkbox"
                             type="checkbox" value="{{ $genre->id }}" id="checkDefault-{{ $genre->id }}">
-                        <label class="form-check-label" for="checkDefault-{{ $genre->id }}">
+                        <label class="form-check-label checkbox-label" for="checkDefault-{{ $genre->id }}">
                             {{ $genre->name }}
                         </label>
                     </div>
                 @endforeach
 
                 <a href="{{ route('genres.create') }}" type="button" class="mt-2 btn btn btn-success me-md-2">
-                    Crea Nuovo Genere
+                    <img src="https://img.icons8.com/?size=100&id=0w8efhRZ2Ijj&format=png&color=000000" width="30"
+                        height="30" alt="Add genre" />
+                    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXE5bm5zdjVrdno5bHFxdzFtNHdwd3k0ZW8wODZpazU3ODQzN3d6ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/8YHZREPQ6j8ikL83p9/giphy.gif"
+                        width="30" height="30" alt="Add genre" />
                 </a>
             </div>
             <div class="mb-3">
                 <img style="height:100px" src="{{ Storage::url($film->cover) }}" alt="">
-                <label for="cover" class="form-label">Immagine Cover Attuale</label>
-                <input class="@error('cover') is-invalid @enderror" type="file" id="cover" name="cover">
+                <label for="cover" class="custom-file-label">Immagine Cover Attuale <img
+                        src="https://img.icons8.com/?size=100&id=Er9eZ59WT9JZ&format=png&color=000000" width="30"
+                        height="30" alt="Modify cover" /></label>
+                <input class="@error('cover') is-invalid @enderror file-input" type="file" id="cover"
+                    name="cover">
             </div>
             <button type="submit" class="btn btn-primary w-100">Aggiorna</button>
         </form>

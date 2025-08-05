@@ -10,7 +10,10 @@
                     aria-label="Search">
             </form>
             <a href="{{ route('films.create') }}" type="button" class="btn btn btn-success me-md-2">
-                Crea Nuovo Film
+                <img src="https://img.icons8.com/?size=100&id=0w8efhRZ2Ijj&format=png&color=000000" width="30"
+                    height="30" alt="Add film" />
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemdoZW1yNnZmZjZ1amFlYjB0ZnRhMDl2azRyOHU5Z2g0bnNodmZmeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dxYLswAT6kMtUdv71h/giphy.gif"
+                    width="30" height="30" alt="Add film" />
             </a>
         </div>
         <table class="table border mt-2">
@@ -47,18 +50,21 @@
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
                                 <a href="{{ route('films.show', ['film' => $film]) }}" class="btn btn-primary me-md-2">
-                                    Visualizza
+                                    <img src="https://img.icons8.com/?size=100&id=119267&format=png&color=000000"
+                                        width="30" height="30" alt="Play" />
                                 </a>
                                 @auth
                                     @if (auth()->user()->is_admin)
                                         <a href="{{ route('films.edit', ['film' => $film]) }}"
                                             class="btn btn-warning me-md-2">
-                                            Modifica
+                                            <img src="https://img.icons8.com/?size=100&id=tKvnEzfDG1hI&format=png&color=000000"
+                                                width="30" height="30" alt="Modify" />
                                         </a>
 
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#deleteModal-{{ $film->id }}">
-                                            Elimina
+                                            <img src="https://img.icons8.com/?size=100&id=x4eY9knZ24Hv&format=png&color=000000"
+                                                width="30" height="30" alt="Delete" />
                                         </button>
 
                                         <div class="modal fade" id="deleteModal-{{ $film->id }}" tabindex="-1"

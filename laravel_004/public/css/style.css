@@ -494,3 +494,97 @@ textarea:focus {
     position: relative;
     width: 100%;
 }
+
+/* Nascondi la checkbox di default */
+.custom-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Stile personalizzato per il box */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #222;
+    /* sfondo scuro */
+    color: #fff;
+    /* testo bianco */
+    border-radius: 0.375rem;
+    /* angoli arrotondati */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Effetto hover */
+.checkbox-label:hover {
+    background-color: #333;
+    /* leggermente più chiaro */
+}
+
+/* Creazione del "check" personalizzato */
+.checkbox-label::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #444;
+    /* bordo grigio scuro */
+    border-radius: 0.25rem;
+    /* angoli arrotondati */
+    margin-right: 0.75rem;
+    background-color: transparent;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+/* Mostrare il check quando selezionato */
+.custom-checkbox:checked+.checkbox-label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: calc(1rem + 0.18rem);
+    /* posizione del check */
+    top: calc(50% - 0.375rem);
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: #e50914;
+    /* colore Netflix */
+    border-radius: 50%;
+}
+
+/* Per rendere più visibile il check */
+.checkbox-label {
+    position: relative;
+}
+
+/* Nascondi il vero input file */
+.file-input {
+    display: none;
+}
+
+/* Stile del pulsante personalizzato */
+.custom-file-label {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #e50914;
+    /* Colore Netflix */
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-file-label:hover {
+    background-color: #d0060e;
+    /* colore più scuro al hover */
+}
+
+/* Stile per il messaggio di errore (se presente) */
+.is-invalid {
+    border-color: #dc3545;
+    /* colore errore Bootstrap */
+}
