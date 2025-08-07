@@ -17,13 +17,12 @@ class Edit extends Component
         $this->name = $this->tag->name;
     }
 
-    public function store()
+    public function update()
     {
         $this->tag->update([
             'name' => $this->name,
         ]);
         request()->session()->flash('success', 'Elemento Aggiornato');
-        $this->name = '';
     }
 
     public function render()

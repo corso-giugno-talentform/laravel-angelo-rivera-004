@@ -13,7 +13,7 @@
                 <form>
                     <div class="mb-3">
                         <label for="name" class="form-label">Tag del film</label>
-                        <input wire:model type="text" class="@error('name') is-invalid @enderror" id="name"
+                        <input wire:model="name" type="text" class="@error('name') is-invalid @enderror" id="name"
                             name="name" placeholder="Inserisci il tag" autocomplete="off">
 
                     </div>
