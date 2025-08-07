@@ -9,13 +9,14 @@ use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class FilmController extends Controller
 {
+
     public function index()
     {
-        $films = Film::simplePaginate(4);
         $authors = Author::all();
-        return view('films.index', compact('films', 'authors'));
+        return view('films.index', compact('authors'));
     }
 
     public function create()

@@ -4,15 +4,8 @@
             <x-alert color="alert-success"> {{ session('success') }}</x-alert>
         @endif
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        <x-errors-all />
+
         {{ $slot }}
         <form class="" action="{{ route('films.update', ['film' => $film]) }}" method="POST"
             enctype="multipart/form-data">

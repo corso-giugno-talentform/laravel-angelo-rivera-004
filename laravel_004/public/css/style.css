@@ -245,7 +245,8 @@ label.form-label {
 input[type="text"],
 input[type="number"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="search"] {
     width: 100%;
     padding: 12px 20px;
     border: none;
@@ -259,7 +260,8 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="email"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus,
+input[type="search"]:focus {
     outline: none;
     background-color: #444;
     box-shadow: 0 0 10px #ff0000;
@@ -271,12 +273,11 @@ button[type="submit"] {
     background-color: #e50914;
     /* rosso Netflix */
     color: white;
-    padding: 12px 24px;
+    padding: 10px 24px;
     border: none;
     border-radius: 4px;
     font-size: 1.1em;
     cursor: pointer;
-    margin-top: 20px;
     transition: background-color 0.3s;
 }
 
@@ -386,7 +387,7 @@ textarea:focus {
 
 .film-thumbnail:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px red;
 }
 
 /* Immagine copertina */
@@ -589,4 +590,50 @@ textarea:focus {
 .is-invalid {
     border-color: #dc3545;
     /* colore errore Bootstrap */
+}
+
+/* Stile generale della tabella Netflix */
+.netflix-table {
+    width: 100%;
+    background-color: #141414;
+    /* sfondo scuro */
+    color: #fff;
+    border-collapse: collapse;
+}
+
+.netflix-table thead {
+    background-color: #222;
+    /* testa più scura */
+}
+
+.netflix-table th,
+.netflix-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #333;
+    vertical-align: middle;
+}
+
+/* Colori e hover */
+.netflix-table tbody tr:hover {
+    background-color: #333;
+    transition: background-color 0.3s;
+}
+
+/* Bottoni stile Netflix */
+.btn-netflix {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+/* Badge stile Netflix */
+.badge-netflix {
+    background-color: #e50914;
+    /* rosso Netflix */
+    color: #fff;
+    border-radius: 4px;
+    padding: 0.2em 0.4em;
+    font-size: 0.75rem;
 }

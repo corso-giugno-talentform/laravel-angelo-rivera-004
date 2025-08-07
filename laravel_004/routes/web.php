@@ -4,6 +4,8 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TagController;
+use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'homepage'])->name('pages.homepage');
@@ -23,3 +25,7 @@ Route::delete('/films/{film}/elimina', [FilmController::class, 'destroy'])->name
 
 Route::resource('authors', AuthorController::class);
 Route::resource('genres', GenreController::class);
+
+Route::get('/counter', Counter::class);
+
+Route::resource('tags', TagController::class);

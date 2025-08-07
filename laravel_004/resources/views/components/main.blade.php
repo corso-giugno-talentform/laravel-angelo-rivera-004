@@ -13,3 +13,9 @@
 </head>
 
 <body class="body d-flex flex-column min-vh-100">
+
+    {{ $slot }}
+
+</body>
+
+</html>
