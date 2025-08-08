@@ -28,4 +28,6 @@ Route::resource('genres', GenreController::class);
 
 Route::get('/counter', Counter::class);
 
-Route::resource('tags', TagController::class);
+Route::get('/tags', [TagController::class, 'index'])->name('tags.index');
+Route::get('/tags/create', [TagController::class, 'create'])->name('tags.create')->middleware('auth');
+Route::get('/tags/modifica', [TagController::class, 'edit'])->name('tags.edit');

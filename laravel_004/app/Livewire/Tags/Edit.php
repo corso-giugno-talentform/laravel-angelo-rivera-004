@@ -9,7 +9,7 @@ use Livewire\Component;
 class Edit extends Component
 {
     public Tag $tag;
-    #[Validate('min:5')]
+    #[Validate('min:5', message: 'Inserisci almeno 5 caratteri',)]
     public $name;
 
     public function mount()
@@ -19,6 +19,7 @@ class Edit extends Component
 
     public function update()
     {
+        $this->validate();
         $this->tag->update([
             'name' => $this->name,
         ]);

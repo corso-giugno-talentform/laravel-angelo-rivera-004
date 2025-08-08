@@ -8,9 +8,7 @@ class TagController extends Controller
 {
     public function index()
     {
-        $tags = Tag::all();
-
-        return view('tags.index', compact('tags'));
+        return view('tags.index');
     }
 
     public function create()
@@ -22,5 +20,10 @@ class TagController extends Controller
     public function edit(Tag $tag)
     {
         return view('tags.edit', compact('tag'));
+    }
+
+    public function show(Tag $tag)
+    {
+        return view('tags.show', compact('tag'));
     }
 }
